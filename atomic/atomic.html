@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+input.purp {
+  border: 4px solid purple;
+  border-radius: 4px;
+  background-color: purple;
+  color: white;
+  font: "comic-sans";
+}
+  input.grey {
+  border: 4px solid grey;
+  border-radius: 4px;
+  background-color: grey;  
+  color: white;
+}
+  p{
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+  }
+  h1, h2, h3 {
+    font-family: "Papyrus", fantasy;
+  }
+</style>
+</head>
+  <h1>atomic simulator</h1>
+  <h2>fill in the boxes and we will simulate the atom(s) in all its glory</h2>
+  <h3>warning causing an explosion to happen in the simulation more than 5 times without any reset may cause simulation to over heat please reset the page after each atomic explosion</h3>
+   <label for="aNumber">enter <span style="color: purple">atomic number</span>:</label>
+  <input class="purp" type="number" id="aNumber" name="aNumber">
+  <br><br>
+   <label for="aMass">enter <span style="color: grey">atomic mass</span>:</label>
+  <input class="grey" type="number" id="aMass" name="aMass">
+  <p id='valenceElectrons'>is it a <span style="color: gold">noble gas<span>:</p>
+   <p id='energyLevels'>number of energy levels:</p>
+  <p id='protons'>number of <span style="color: red">protons</span>:</p> 
+  <p id='electrons'>number of <span style="color: blue">electrons</span>:</p> 
+  <p id='nutrons'>number of <span style="color: brown">nutrons</span>:</p> 
+  <p id='atomName'>whats its name</p>
+  <p id='symbol'> atom's <span style="color: orange">symbol</span></p>
+  <button id='calculateStart'>get atom info</button>
+  <script>
+  function calculate() { 
+  // declaring variables
+    let aNumber = document.querySelector('#aNumber').value
+  let aMass = document.querySelector('#aMass').value
+  let electrons = aNumber
+  let protons = aNumber
+  let roundedMass = Math.round(aMass)
+  let nutrons = roundedMass - aNumber;
+  let electronClone = electrons;
+    // calculate energy
+    let eLevels = 1
+    let calEnLev = 0
+    do{
+    electronClone -= calEnLev;
+    calEnLev = Math.pow(eLevels, 2) *2;
+     eLevels++
+  }
+    while(electronClone > calEnLev );
+    eLevels = Math.sqrt(calEnLev/2)
+    //check if its a royal gas
+    console.log('is it a noble gas?', electronClone == 8 )
+    if (electronClone == 8){
+      document.querySelector('#valenceElectrons').innerHTML=`is it a noble gas: yes`;
+    }else if (electrons == 2){
+       document.querySelector('#valenceElectrons').innerHTML=`is it a noble gas: yes`;
+    }else{
+      document.querySelector('#valenceElectrons').innerHTML=`is it a noble gas: no`;
+    }
+    document.querySelector('#valenceElectrons').style.color = "gold";
+    //find name if it exist
+   if(aNumber == 1 && roundedMass == 1){
+       getName('hydrogen', 'H')
+   }else if(aNumber == 2 && roundedMass == 4){
+       getName('helium', 'He')
+   }else if(aNumber == 3 && roundedMass == 7){
+       getName('lithium', 'Li')
+   }else if(aNumber == 4 && roundedMass == 9){
+       getName('berylium', 'Be')
+   }else if(aNumber == 5 && roundedMass == 11){
+       getName('boron', 'B')
+   }else if(aNumber == 6 && roundedMass == 12){
+       getName('carbon', 'C')
+   }else if(aNumber == 7 && roundedMass == 14){
+       getName('nitrogen', 'N')
+   }else if(aNumber == 8 && roundedMass == 16){
+       getName('oxygen', 'O')
+   }else if(aNumber == 9 && roundedMass == 19){
+       getName('fluorine', 'F')
+   }else if(aNumber == 10 && roundedMass == 20){
+       getName('neon', 'Ne')
+   }else if(aNumber == 11 && roundedMass == 23){
+      getName('sodium', 'Na') 
+  }else if(aNumber == 12 && roundedMass == 24){
+      getName('magnesium', 'Mg') 
+  }else if(aNumber == 13 && roundedMass == 27){
+      getName('aluminum', 'Al') 
+  }else if(aNumber == 14 && roundedMass == 28){
+      getName('silicone', 'Si') 
+  }else if(aNumber == 15 && roundedMass == 31){
+      getName('phosphurus', 'P') 
+  }else if(aNumber == 16 && roundedMass == 32){
+      getName('sulfur', 'S') 
+  }else if(aNumber == 17 && roundedMass == 35){
+      getName('chlorine', 'Cl') 
+  }else if(aNumber == 18 && roundedMass == 40){
+      getName('argon', 'Ar') 
+  }else if(aNumber == 19 && roundedMass == 39){
+      getName('potassium', 'K') 
+  }else if(aNumber == 20 && roundedMass == 40){
+      getName('calcium', 'Ca') 
+  }else if(aNumber == 21 && roundedMass == 45){
+       getName('scandium', 'Sc')
+   }else if(aNumber == 22 && roundedMass == 48){
+       getName('titanium', 'Ti')
+   }else if(aNumber == 23 && roundedMass == 51){
+       getName('vandium', 'V')
+   }else if(aNumber == 24 && roundedMass == 52){
+       getName('chronium', 'Cr')
+   }else if(aNumber == 26 && roundedMass == 56){
+       getName('iron', 'Fe')
+   }else if(aNumber == 27 && roundedMass == 59){
+       getName('cobalt', 'Co')
+   }else if(aNumber == 28 && roundedMass == 59){
+       getName('Nickel', 'Ni')
+   }else if(aNumber == 29 && roundedMass == 64){
+       getName('copper', 'Cu')
+   }else if(aNumber == 30 && roundedMass == 65){
+       getName('zinc', 'Zn')
+   }else if(aNumber == 31 && roundedMass == 67){
+       getName('gallium', 'Ga')
+   }else if(aNumber == 32 && roundedMass == 73){
+       getName('germanium', 'Ge')
+   }else if(aNumber == 33 && roundedMass == 75){
+       getName('arsenic', 'As')
+   }else if(aNumber == 34 && roundedMass == 79){
+       getName('seleium', 'Se')
+   }else if(aNumber == 35 && roundedMass == 80){
+       getName('bromine', 'Br')
+   }else if(aNumber == 36 && roundedMass == 84){
+       getName('kryptonite', 'Kr')
+   }else if(aNumber == 37 && roundedMass == 85){
+       getName('rubidium', 'Rb')
+   }else if(aNumber == 38 && roundedMass == 88){
+       getName('strontium', 'Sr')
+   }else if(aNumber == 39 && roundedMass == 89){
+       getName('yttrium', 'Y')
+   }else if(aNumber == 40 && roundedMass == 91){
+       getName('zirconium', 'Zr')
+   }else if(aNumber == 41 && roundedMass == 93){
+       getName('niobium', 'Nb')
+   }else if(aNumber == 42 && roundedMass == 96){
+       getName('molybdenum', 'Mo')
+   }else if(aNumber == 43 && roundedMass == 98){
+       getName('technetium', 'Tc')
+   }else if(aNumber == 44 && roundedMass == 101){
+       getName('ruthenium', 'Ru')
+   }else if(aNumber == 45 && roundedMass == 103){
+       getName('rhodium', 'Rh')
+   }else if(aNumber == 46 && roundedMass == 106){
+       getName('platinium', 'Pt')
+   }else if(aNumber == 47 && roundedMass == 108){
+       getName('silver', 'Ag')
+   }else if(aNumber == 48 && roundedMass == 112){
+       getName('cadmium', 'Cd')
+   }else if(aNumber == 49 && roundedMass == 115){
+       getName('indium', 'In')
+   }else if(aNumber == 50 && roundedMass == 119){
+       getName('tin', 'Sn')
+   }else if(aNumber == 51 && roundedMass == 122){
+       getName('antimoby', 'Sb')
+   }else if(aNumber == 52 && roundedMass == 128){
+       getName('tellurium', 'Te')
+   }else if(aNumber == 53 && roundedMass == 127){
+       getName('iodine', 'I')
+   }else if(aNumber == 54 && roundedMass == 131){
+       getName('xenon', 'Xe')
+   }else if(aNumber == 55 && roundedMass == 133){
+       getName('caesium', 'Cs')
+   }else if(aNumber == 56 && roundedMass == 137){
+       getName('barium', 'Ba')
+   }else if(aNumber == 57 && roundedMass == 139){
+       getName('lanthanium', 'La')
+   }else if(aNumber == 58 && roundedMass == 140){
+       getName('cerium', 'ce')
+   }else if(aNumber == 59 && roundedMass == 141){
+       getName('praseodymium', 'Pr')
+   }else if(aNumber == 60 && roundedMass == 144){
+       getName('neodymium', 'Nd')
+   }else if(aNumber == 61 && roundedMass == 145){
+       getName('Pm', 'promethium')
+   }else if(aNumber == 62 && roundedMass == 150){
+       getName('samarium', 'Sm')
+   }else if(aNumber == 63 && roundedMass == 152){
+       getName('europium', 'Eu')
+   }else if(aNumber == 64 && roundedMass == 157){
+       getName('gadolinium', 'Gl')
+   }else if(aNumber == 65 && roundedMass == 159){
+       getName('terbium', 'Tb')
+   }else if(aNumber == 66 && roundedMass == 163){
+       getName('dysprsium', 'Dy')
+   }else if(aNumber == 67 && roundedMass == 165){
+       getName('holmium', 'Ho')
+   }else if(aNumber == 68 && roundedMass == 167){
+       getName('erbium', 'Er')
+   }else if(aNumber == 69 && roundedMass == 169){
+       getName('thulium', 'Tm')
+   }else if(aNumber == 70 && roundedMass == 173){
+       getName('ytterbium', 'Yb')
+   }else if(aNumber == 71 && roundedMass == 175){
+       getName('lutetium', 'Lu')
+   }else if(aNumber == 72 && roundedMass == 178){
+       getName('hafnium', 'Hf')
+   }else if(aNumber == 73 && roundedMass == 181){
+       getName('tantalum', 'Ta')
+   }else if(aNumber == 74 && roundedMass == 184){
+       getName('tungsten', 'W')
+   }else if(aNumber == 75 && roundedMass == 186){
+       getName('rhenium', 'Re')
+   }else if(aNumber == 76 && roundedMass == 190){
+       getName('osmium', 'Os')
+   }else if(aNumber == 77 && roundedMass == 192){
+       getName('iridium', 'Ir')
+   }else if(aNumber == 78 && roundedMass == 195){
+       getName('platinum', 'Pt')
+   }else if(aNumber == 79 && roundedMass == 197){
+       getName('gold', 'Au')
+   }else if(aNumber == 80 && roundedMass == 201){
+       getName('mecury', 'Hg')
+   }else if(aNumber == 81 && roundedMass == 204){
+       getName('thallium', 'Tl')
+   }else if(aNumber == 82 && roundedMass == 207){
+       getName('lead', 'Pb')
+   }else if(aNumber == 83 && roundedMass == 209){
+       getName('bismuth', 'Bi')
+   }else if(aNumber == 84 && roundedMass == 209){
+       getName('polonium', 'Po')
+   }else if(aNumber == 85 && roundedMass == 210){
+       getName('astatine', 'At')
+   }else if(aNumber == 86 && roundedMass == 222){
+       getName('radon', 'Rn')
+   }else if(aNumber == 87 && roundedMass == 223){
+       getName('francium', 'Fr')
+   }else if(aNumber == 88 && roundedMass == 226){
+       getName('radium', 'Ra')
+   }else if(aNumber == 89 && roundedMass == 227){
+       getName('actinium', 'Ac')
+   }else if(aNumber == 90 && roundedMass == 232){
+       getName('thorium', 'Th')
+   }else if(aNumber == 91 && roundedMass == 231){
+       getName('protactinium', 'Pa')
+   }else if(aNumber == 92 && roundedMass == 238){
+       getName('uranium', 'U')
+   }else if(aNumber == 93 && roundedMass == 237){
+       getName('neptunium', 'Np')
+   }else if(aNumber == 94 && roundedMass == 244){
+       getName('plutoium', 'Pu')
+   }else if(aNumber == 95 && roundedMass == 243){
+       getName('americium', 'Am')
+   }else if(aNumber == 96 && roundedMass == 247){
+       getName('curium', 'Cm')
+   }else if(aNumber == 97 && roundedMass == 247){
+       getName('berkelium', 'Bk')
+   }else if(aNumber == 98 && roundedMass == 251){
+       getName('californium', 'Cf')
+   }else if(aNumber == 99 && roundedMass == 252){
+       getName('einstienium', 'Es')
+   }else if(aNumber == 100 && roundedMass == 257){
+       getName('fermium', 'Fm')
+   }else if(aNumber == 101 && roundedMass == 258){
+       getName('mendelevium', 'Md')
+   }else if(aNumber == 102 && roundedMass == 259){
+       getName('nobelium', 'No')
+   }else if(aNumber == 103 && roundedMass == 266){
+       getName('lawrencium', 'Lr')
+   }else if(aNumber == 104 && roundedMass == 267){
+       getName('rutherfordium', 'Rf')
+   }else if(aNumber == 105 && roundedMass == 268){
+       getName('dubnium', 'Db')
+   }else if(aNumber == 106 && roundedMass == 269){
+       getName('seaborgium', 'Sg')
+   }else if(aNumber == 107 && roundedMass == 270){
+       getName('bohrium', 'Bh')
+   }else if(aNumber == 108 && roundedMass == 277){
+       getName('hassium', 'Hs')
+   }else if(aNumber == 109 && roundedMass == 278){
+       getName('meitnerium', 'Mt')
+   }else if(aNumber == 110 && roundedMass == 281){
+       getName('darmstatdium', 'Ds')
+   }else if(aNumber == 111 && roundedMass == 282){
+       getName('roentgenium', 'Rg')
+   }else if(aNumber == 112 && roundedMass == 285){
+       getName('copernicium', 'Cp')
+   }else if(aNumber == 113 && roundedMass == 286){
+       getName('nihonium', 'Nh')
+   }else if(aNumber == 114 && roundedMass == 289){
+       getName('flerovium', 'Fl')
+   }else if(aNumber == 115 && roundedMass == 290){
+       getName('moscovium', 'Mc')
+   }else if(aNumber == 116 && roundedMass == 293){
+       getName('livermorium', 'Lv')
+   }else if(aNumber == 117 && roundedMass == 294){
+       getName('tennessine', 'Ts')
+   }else if(aNumber == 118 && roundedMass == 294){
+       getName('ogannesson', 'Og')
+   }else{
+     getName('there is none', 'it doesnt exist')
+   }       
+ //check values    
+    console.log('aNumber', aNumber)
+    console.log('aMass', aMass)
+    console.log('energy levels', eLevels)
+    console.log('electrons', electrons)
+    console.log('protons', protons)
+    console.log('nutrons', nutrons)
+    console.log('rounded mass', roundedMass)
+ // execute onto screen
+    document.querySelector('#energyLevels').innerHTML=`number of energy levels: ${eLevels}`;
+    document.querySelector('#electrons').innerHTML=`the number of electrons is: ${electrons}`;
+    document.querySelector('#electrons').style.color = "blue";
+    document.querySelector('#protons').innerHTML=`the number of protons is: ${protons}`;
+    document.querySelector('#protons').style.color = "red";
+    document.querySelector('#nutrons').innerHTML=`the number of nutrons is: ${nutrons}`;
+    document.querySelector('#nutrons').style.color = "brown";
+  }
+  function getName(name, letters) {
+    document.querySelector('#atomName').innerHTML=`its name is: ${name}`;  
+    document.querySelector('#symbol').innerHTML=`its symbol is: ${letters}`;
+    document.querySelector('#symbol').style.color = "orange";     
+  }
+    // check button
+     const button = document.querySelector('#calculateStart');
+            button.addEventListener('click', calculate);
+  </script>
+  </body>
+</html>
