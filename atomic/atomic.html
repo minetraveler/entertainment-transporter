@@ -2,6 +2,38 @@
 <html>
 <head>
 <style>
+.sans{
+background: radial-gradient(blue, black, white, black, white, black, white, black, white, black, white, black, white, black, white, black, white, black, white, black, white);
+}
+.kriptonite{
+background: radial-gradient(#027306, rgb(138, 233, 126), #027306, rgb(138, 233, 126), #027306, rgb(138, 233, 126), #027306, rgb(138, 233, 126));
+} 
+ .americaBack{
+ background: radial-gradient(red, white, blue);
+ }
+button{
+background:blue;
+  text-decoration:none;
+  padding:10px;
+  border:3px solid red;
+  padding-right:25px;
+  padding-left:25px;
+  border-radius:10px;
+  margin:5px;
+  font-weight:bold;
+  color: red;
+  display:inline-block;
+}
+button:hover{
+  box-shadow: 0 8px 16px 0 gray;
+  background: blue;
+  color: orange;
+  transition:all 0.4s;
+}
+button:active{
+ box-shadow: 0 0px 0px 0 black ;
+  transition: all 0.07s;
+}
 input.purp {
   border: 4px solid purple;
   border-radius: 4px;
@@ -18,12 +50,148 @@ input.purp {
   p{
     font-family: "Comic Sans MS", "Comic Sans" ;
   }
-  h1, h2, h3 {
+  h1, h2, h3, div {
     font-family: "Papyrus", fantasy;
   }
+  .lvBar {
+    width: 100%; 
+   background-image: linear-gradient(#027306, rgb(138, 233, 126), #027306);
+  }
+  .skills {
+    text-align: right; 
+  padding-top: 10px; 
+  padding-bottom: 10px; 
+  color: black;
+}
+.violenceAt20 {
+border-style: solid;
+    border-color: #027306;
+    width: 100%;
+    border-radius: 25px;
+}
+.violenceAt19 {
+border-style: solid;
+    border-color: #027306;
+    width: 95%;
+    border-radius: 25px;
+}
+.violenceAt18 {
+border-style: solid;
+    border-color: #027306;
+    width: 90%;
+    border-radius: 25px;
+}
+.violenceAt17 {
+border-style: solid;
+    border-color: #027306;
+    width: 85%;
+    border-radius: 25px;
+}
+.violenceAt16 {
+border-style: solid;
+    border-color: #027306;
+    width: 80%;
+    border-radius: 25px;
+}
+.violenceAt15 {
+border-style: solid;
+    border-color: #027306;
+    width: 75%;
+    border-radius: 25px;
+}
+.violenceAt14 {
+border-style: solid;
+    border-color: #027306;
+    width: 70%;
+    border-radius: 25px;
+}
+.violenceAt13 {
+border-style: solid;
+    border-color: #027306;
+    width: 65%;
+    border-radius: 25px;
+}
+.violenceAt12 {
+border-style: solid;
+    border-color: #027306;
+    width: 60%;
+    border-radius: 25px;
+}
+.violenceAt11 {
+border-style: solid;
+    border-color: #027306;
+    width: 55%;
+    border-radius: 25px;
+}
+.violenceAt10 {
+border-style: solid;
+    border-color: #027306;
+    width: 50%;
+    border-radius: 25px;
+}
+.violenceAt9 {
+border-style: solid;
+    border-color: #027306;
+    width: 45%;
+    border-radius: 25px;
+}
+.violenceAt8 {
+border-style: solid;
+    border-color: #027306;
+    width: 40%;
+    border-radius: 25px;
+}
+.violenceAt7 {
+border-style: solid;
+    border-color: #027306;
+    width: 35%;
+    border-radius: 25px;
+}
+.violenceAt6 {
+border-style: solid;
+    border-color: #027306;
+    width: 30%;
+    border-radius: 25px;
+}
+.violenceAt5 {
+border-style: solid;
+    border-color: #027306;
+    width: 25%;
+    border-radius: 25px;
+}
+.violenceAt4 {
+border-style: solid;
+    border-color: #027306;
+    width: 20%;
+    border-radius: 25px;
+}
+.violenceAt3 {
+border-style: solid;
+    border-color: #027306;
+    width: 15%;
+    border-radius: 25px;
+}
+.violenceAt2 {
+border-style: solid;
+    border-color: #027306;
+    width: 10%;
+    border-radius: 25px;
+}
+.violenceAt1 {
+    border-style: solid;
+    border-color: #027306;
+    width: 5%;
+    border-radius: 25px;
+}
+.violenceAt0 {
+    width: 0%;
+    border-radius: 25px;
+}
 </style>
 </head>
-  <h1>atomic simulator (Gama version)</h1>
+<body id="body" class=''>
+<div id='basics'>
+  <h1>atomic simulator (Gamma version) v0.003</h1>
   <h2>fill in the boxes and we will simulate the atom(s) in all its glory</h2>
   <h3>warning causing an explosion to happen in the simulation more than 5 times without any reset may cause simulation to over heat please reset the page after each atomic explosion</h3>
    <label for="aNumber">enter <span style="color: purple">atomic number</span>:</label>
@@ -35,20 +203,37 @@ input.purp {
    <p id='energyLevels'>number of energy levels:</p>
   <p id='protons'>number of <span style="color: red">protons</span>:</p> 
   <p id='electrons'>number of <span style="color: blue">electrons</span>:</p> 
-  <p id='nutrons'>number of <span style="color: brown">nutrons</span>:</p> 
+  <p id='nutrons'>number of <span style="color: brown">neutrons</span>:</p> 
   <p id='atomName'>whats its name</p>
   <p id='symbol'> atom's <span style="color: orange">symbol</span></p>
-  <button id='calculateStart'>get atom info</button>
+  <button id='calculateStart'>generate atom</button>
+  </div>
+  <div id='levelBar' class="lvBar skills violenceAt0">
+
+  </div>
   <script>
+   //declare global variable
+    let kriptonite = 0;
+    let america = 0;
+    let levelBar = 0
+    let violenceCounter = [{timer:0, cssChoice:'violenceAt0'}, {timer:1, cssChoice:'violenceAt1'}, {timer:3, cssChoice:'violenceAt2'}, {timer:4, cssChoice:'violenceAt3'}, {timer:5, cssChoice:'violenceAt5'}, {timer:6, cssChoice:'violenceAt6'}, {timer:7, cssChoice:'violenceAt7'}, {timer:8, cssChoice:'violenceAt8'}, {timer:9, cssChoice:'violenceAt9'}, {timer:10, cssChoice:'violenceAt10'}, {timer:11, cssChoice:'violenceAt11'}, {timer:12, cssChoice:'violenceAt12'}, {timer:13, cssChoice:'violenceAt13'}, {timer:14, cssChoice:'violenceAt14'}, {timer:15, cssChoice:'violenceAt15'}, {timer:16, cssChoice:'violenceAt16'}, {timer:17, cssChoice:'violenceAt17'}, {timer:18, cssChoice:'violenceAt18'}, {timer:19, cssChoice:'violenceAt19'}, {timer:20, cssChoice:'violenceAt20'}];
+    let levelOfViolence = 0;
+    let livers = 0;
+    let floridianFlavor = 0;
+    let originals = 0;
+    let cornicopia = 0;
+    let moscow = 0;
+    let tenisee = 0;
   function calculate() { 
   // declaring variables
-    let aNumber = document.querySelector('#aNumber').value
+
+  let aNumber = document.querySelector('#aNumber').value
   let aMass = document.querySelector('#aMass').value
   let electrons = aNumber
   let protons = aNumber
   let roundedMass = Math.round(aMass)
   let nutrons = roundedMass - aNumber;
-  let electronClone = electrons;
+  let electronClone = Math.abs(electrons);
     // calculate energy
     let eLevels = 1
     let calEnLev = 0
@@ -139,7 +324,15 @@ input.purp {
    }else if(aNumber == 35 && roundedMass == 80){
        getName('bromine', 'Br')
    }else if(aNumber == 36 && roundedMass == 84){
+   if(kriptonite == 4){
+   document.querySelector('#body').classList.add('kriptonite')
+   getName('kripton', 'Sm')
+   kriptonite = 0;
+   }else{
+    document.querySelector('#body').classList.remove('kriptonite')
        getName('kryptonite', 'Kr')
+       kriptonite ++;  
+       }
    }else if(aNumber == 37 && roundedMass == 85){
        getName('rubidium', 'Rb')
    }else if(aNumber == 38 && roundedMass == 88){
@@ -257,7 +450,15 @@ input.purp {
    }else if(aNumber == 94 && roundedMass == 244){
        getName('plutoium', 'Pu')
    }else if(aNumber == 95 && roundedMass == 243){
+   if(america == 4){
+   america = 0
+   getName('america', 'Pm')
+   document.querySelector('#body').classList.add('americaBack')
+   }else{
        getName('americium', 'Am')
+       america += 1
+   document.querySelector('#body').classList.remove('americaBack')
+       }
    }else if(aNumber == 96 && roundedMass == 247){
        getName('curium', 'Cm')
    }else if(aNumber == 97 && roundedMass == 247){
@@ -291,37 +492,85 @@ input.purp {
    }else if(aNumber == 111 && roundedMass == 282){
        getName('roentgenium', 'Rg')
    }else if(aNumber == 112 && roundedMass == 285){
+     if (cornicopia == 4){
+       getName('cornicopia', "Cp")
+       cornicopia = 0
+     }else{
        getName('copernicium', 'Cp')
+       cornicopia += 1
+     }
    }else if(aNumber == 113 && roundedMass == 286){
        getName('nihonium', 'Nh')
    }else if(aNumber == 114 && roundedMass == 289){
+       if (floridianFlavor == 4){
+       getName('florida man', "flavor")
+       floridianFlavor = 0;
+     }else{
        getName('flerovium', 'Fl')
+       floridianFlavor += 1;
+     }
    }else if(aNumber == 115 && roundedMass == 290){
+       if (moscow == 4){
+       getName('moscow', "Mcu")
+       moscow = 0
+     }else{
        getName('moscovium', 'Mc')
+       moscow += 1
+     }
    }else if(aNumber == 116 && roundedMass == 293){
+    if (livers == 4){
+        if (levelOfViolence == 4){
+       getName('why did you kill him', "level of violence")
+       levelOfViolence = 0
+            levelBar ++     
+       if(levelBar <  20){
+                 document.querySelector('#body').classList.remove('sans')
+document.querySelector('#levelBar').classList.remove(`violenceAt${levelBar - 1}`)
+       document.querySelector('#levelBar').classList.add(`violenceAt${levelBar}`)
+       }else{
+        document.querySelector('#levelBar').innerHTML='WHY DID YOU KILL PAPS';
+           document.querySelector('#body').classList.add('sans')
+       levelBar = 0;    
+       }
+    }else{
+       getName('liver', "level")
+       livers = 0;
+       levelOfViolence += 1;
+     }
+     }else{
        getName('livermorium', 'Lv')
+       livers +=1;
+          document.querySelector('#body').classList.remove('sans')
+
+     }
    }else if(aNumber == 117 && roundedMass == 294){
+   if (tenisee == 4){
+       getName('tennessee', "T series")
+       tenisee = 0
+     }else{
        getName('tennessine', 'Ts')
+       tenisee += 1
+       }
    }else if(aNumber == 118 && roundedMass == 294){
+   if (originals == 4){
+       getName('organ', 'original')
+       originals = 0
+     }else{
        getName('ogannesson', 'Og')
+       originals += 1
+       }
    }else{
      getName('there is none', 'it doesnt exist')
    }       
- //check values    
-    console.log('aNumber', aNumber)
-    console.log('aMass', aMass)
-    console.log('energy levels', eLevels)
-    console.log('electrons', electrons)
-    console.log('protons', protons)
-    console.log('nutrons', nutrons)
-    console.log('rounded mass', roundedMass)
+ //check values  
+   
  // execute onto screen
     document.querySelector('#energyLevels').innerHTML=`number of energy levels: ${eLevels}`;
     document.querySelector('#electrons').innerHTML=`the number of electrons is: ${electrons}`;
     document.querySelector('#electrons').style.color = "blue";
     document.querySelector('#protons').innerHTML=`the number of protons is: ${protons}`;
     document.querySelector('#protons').style.color = "red";
-    document.querySelector('#nutrons').innerHTML=`the number of nutrons is: ${nutrons}`;
+    document.querySelector('#nutrons').innerHTML=`the number of neutrons is: ${nutrons}`;
     document.querySelector('#nutrons').style.color = "brown";
   }
   function getName(name, letters) {
