@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>atomic simulator</title>
 <style>
+.atom{
+border-radius: 50%;
+}
 .sans{
 background: radial-gradient(blue, black, white, black, white, black, white, black, white, black, white, black, white, black, white, black, white, black, white, black, white);
 }
@@ -53,145 +57,27 @@ input.purp {
   h1, h2, h3, div {
     font-family: "Papyrus", fantasy;
   }
-  .lvBar {
-    width: 100%; 
-   background-image: linear-gradient(#027306, rgb(138, 233, 126), #027306);
-  }
-  .skills {
+  .violenceAtBlank {
+    background-image: linear-gradient(to bottom, #027306, rgb(138, 233, 126), #027306);
     text-align: right; 
-  padding-top: 10px; 
-  padding-bottom: 10px; 
-  color: black;
-}
-.violenceAt20 {
-border-style: solid;
-    border-color: #027306;
-    width: 100%;
-    border-radius: 25px;
-}
-.violenceAt19 {
-border-style: solid;
-    border-color: #027306;
-    width: 95%;
-    border-radius: 25px;
-}
-.violenceAt18 {
-border-style: solid;
-    border-color: #027306;
-    width: 90%;
-    border-radius: 25px;
-}
-.violenceAt17 {
-border-style: solid;
-    border-color: #027306;
-    width: 85%;
-    border-radius: 25px;
-}
-.violenceAt16 {
-border-style: solid;
-    border-color: #027306;
-    width: 80%;
-    border-radius: 25px;
-}
-.violenceAt15 {
-border-style: solid;
-    border-color: #027306;
-    width: 75%;
-    border-radius: 25px;
-}
-.violenceAt14 {
-border-style: solid;
-    border-color: #027306;
-    width: 70%;
-    border-radius: 25px;
-}
-.violenceAt13 {
-border-style: solid;
-    border-color: #027306;
-    width: 65%;
-    border-radius: 25px;
-}
-.violenceAt12 {
-border-style: solid;
-    border-color: #027306;
-    width: 60%;
-    border-radius: 25px;
-}
-.violenceAt11 {
-border-style: solid;
-    border-color: #027306;
-    width: 55%;
-    border-radius: 25px;
-}
-.violenceAt10 {
-border-style: solid;
-    border-color: #027306;
-    width: 50%;
-    border-radius: 25px;
-}
-.violenceAt9 {
-border-style: solid;
-    border-color: #027306;
-    width: 45%;
-    border-radius: 25px;
-}
-.violenceAt8 {
-border-style: solid;
-    border-color: #027306;
-    width: 40%;
-    border-radius: 25px;
-}
-.violenceAt7 {
-border-style: solid;
-    border-color: #027306;
-    width: 35%;
-    border-radius: 25px;
-}
-.violenceAt6 {
-border-style: solid;
-    border-color: #027306;
-    width: 30%;
-    border-radius: 25px;
-}
-.violenceAt5 {
-border-style: solid;
-    border-color: #027306;
-    width: 25%;
-    border-radius: 25px;
-}
-.violenceAt4 {
-border-style: solid;
-    border-color: #027306;
-    width: 20%;
-    border-radius: 25px;
-}
-.violenceAt3 {
-border-style: solid;
-    border-color: #027306;
-    width: 15%;
-    border-radius: 25px;
-}
-.violenceAt2 {
-border-style: solid;
-    border-color: #027306;
-    width: 10%;
-    border-radius: 25px;
-}
-.violenceAt1 {
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+    color: black;
+    width: 0%;
     border-style: solid;
     border-color: #027306;
-    width: 5%;
-    border-radius: 25px;
-}
-.violenceAt0 {
-    width: 0%;
-    border-radius: 25px;
-}
+    border-radius: 25px; 
+    border-width: 0px;
+    transition: width 0.5s linear;
+  }
+  .genocideActive{
+    border-width: 7px;
+  }
 </style>
 </head>
 <body id="body" class=''>
 <div id='basics'>
-  <h1>atomic simulator (Gamma version) v0.003</h1>
+  <h1>atomic simulator (Gamma version) v0.004</h1>
   <h2>fill in the boxes and we will simulate the atom(s) in all its glory</h2>
   <h3>warning causing an explosion to happen in the simulation more than 5 times without any reset may cause simulation to over heat please reset the page after each atomic explosion</h3>
    <label for="aNumber">enter <span style="color: purple">atomic number</span>:</label>
@@ -208,15 +94,15 @@ border-style: solid;
   <p id='symbol'> atom's <span style="color: orange">symbol</span></p>
   <button id='calculateStart'>generate atom</button>
   </div>
-  <div id='levelBar' class="lvBar skills violenceAt0">
-
+  <div id='levelBar' class="violenceAtBlank lvBar ">
   </div>
   <script>
    //declare global variable
+   const violenceAtBlank = document.querySelector('.violenceAtBlank');
+   violenceAtBlank.style.width = '0%'
     let kriptonite = 0;
     let america = 0;
     let levelBar = 0
-    let violenceCounter = [{timer:0, cssChoice:'violenceAt0'}, {timer:1, cssChoice:'violenceAt1'}, {timer:3, cssChoice:'violenceAt2'}, {timer:4, cssChoice:'violenceAt3'}, {timer:5, cssChoice:'violenceAt5'}, {timer:6, cssChoice:'violenceAt6'}, {timer:7, cssChoice:'violenceAt7'}, {timer:8, cssChoice:'violenceAt8'}, {timer:9, cssChoice:'violenceAt9'}, {timer:10, cssChoice:'violenceAt10'}, {timer:11, cssChoice:'violenceAt11'}, {timer:12, cssChoice:'violenceAt12'}, {timer:13, cssChoice:'violenceAt13'}, {timer:14, cssChoice:'violenceAt14'}, {timer:15, cssChoice:'violenceAt15'}, {timer:16, cssChoice:'violenceAt16'}, {timer:17, cssChoice:'violenceAt17'}, {timer:18, cssChoice:'violenceAt18'}, {timer:19, cssChoice:'violenceAt19'}, {timer:20, cssChoice:'violenceAt20'}];
     let levelOfViolence = 0;
     let livers = 0;
     let floridianFlavor = 0;
@@ -226,7 +112,6 @@ border-style: solid;
     let tenisee = 0;
   function calculate() { 
   // declaring variables
-
   let aNumber = document.querySelector('#aNumber').value
   let aMass = document.querySelector('#aMass').value
   let electrons = aNumber
@@ -245,7 +130,6 @@ border-style: solid;
     while(electronClone > calEnLev );
     eLevels = Math.sqrt(calEnLev/2)
     //check if its a royal gas
-    console.log('is it a noble gas?', electronClone == 8 )
     if (electronClone == 8){
       document.querySelector('#valenceElectrons').innerHTML=`is it a noble gas: yes`;
     }else if (electrons == 2){
@@ -518,21 +402,26 @@ border-style: solid;
        moscow += 1
      }
    }else if(aNumber == 116 && roundedMass == 293){
-    if (livers == 4){
-        if (levelOfViolence == 4){
-       getName('why did you kill him', "level of violence")
-       levelOfViolence = 0
-            levelBar ++     
-       if(levelBar <  20){
-                 document.querySelector('#body').classList.remove('sans')
-document.querySelector('#levelBar').classList.remove(`violenceAt${levelBar - 1}`)
-       document.querySelector('#levelBar').classList.add(`violenceAt${levelBar}`)
-       }else{
-        document.querySelector('#levelBar').innerHTML='WHY DID YOU KILL PAPS';
-           document.querySelector('#body').classList.add('sans')
-       levelBar = 0;    
-       }
-    }else{
+        if (livers == 4){
+            if (levelOfViolence == 4){
+                getName('why did you kill him', "level of violence")
+                levelOfViolence = 0
+                levelBar ++ 
+                const currentVioWid = parseInt(violenceAtBlank.style.width);    
+                let newVioWid = 0;
+                if(levelBar <  20){
+                    document.querySelector('#body').classList.remove('sans')
+                    // actually start changing the stuff 
+                    newVioWid = currentVioWid + 5
+                    violenceAtBlank.classList.add('genocideActive')
+                }else{
+                    violenceAtBlank.innerHTML='WHY DID YOU KILL PAPS'
+                    document.querySelector('#body').classList.add('sans')
+                    violenceAtBlank.classList.remove('genocideActive')
+                    levelBar = 0
+                }
+                violenceAtBlank.style.width = `${newVioWid}%` 
+            }else{
        getName('liver', "level")
        livers = 0;
        levelOfViolence += 1;
