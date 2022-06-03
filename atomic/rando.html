@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>random number genrator</title>
+    <style>
+      body{
+        background-image: linear-gradient(red, orange, black, red);
+      }
+      input {
+  border: 2px solid blue;
+  border-radius: 4px;
+}
+      button{
+  border: 2px solid rgb(243, 133, 151);
+  border-radius: 4px;
+}
+      p {
+        color: rgb(107, 255, 107);
+      }  
+      #wrong{
+        color: red;
+
+      }  
+    </style>
+    </head>
+    <body>
+        <h1 id="title">random number generator</h1>
+        <input type="number" id="minNumber" placeholder="min" />
+        <input type="number" id="maxNumber" placeholder="max" />
+        <button id="genWholeNumberButton">Generate a whole Number</button>
+        <button id="genDecNumberButton">Generate a Number</button>
+        <p id = 'introduceRandomNumber'>Random number is: <span id="generatedNumber">nothing</span></p>
+      <h1 id="wrong"><h1>
+        <script>
+          const generateDecNumberAndAddToPage = () => {                    
+                const min = parseInt(document.querySelector('#minNumber').value)
+                const max = parseInt(document.querySelector('#maxNumber').value)
+                if(min > max){
+                  document.getElementById('wrong').innerHTML='min cant be greater than max'
+                }else{
+               console.log('whole number')
+                let newNumber1 = Math.random() * (max - min) + min
+                let newNumberTrue = Math.round(newNumber1 * 10000000000) / 10000000000
+                let target = document.querySelector('#generatedNumber')
+                 document.getElementById('wrong').innerHTML=''
+                target.innerHTML = newNumberTrue
+              }
+            }
+                
+            const generateNumberAndAddToPage = () => {                    
+              const min = parseInt(document.querySelector('#minNumber').value)
+           const max = parseInt(document.querySelector('#maxNumber').value)   
+              if(min > max){
+                  document.getElementById('wrong').innerHTML='min cant be greater than max'
+                }else{
+                console.log('dec number')
+                let newNumber1 = Math.round(Math.random() * (max - min)) + min
+                  let target1 = document.querySelector('#generatedNumber')
+                 document.getElementById('wrong').innerHTML=''
+                  target1.innerHTML = newNumber1
+                }
+            }
+            const button = document.querySelector('#genWholeNumberButton')
+            button.addEventListener('click', generateNumberAndAddToPage)
+     
+            const button1 = document.querySelector('#genDecNumberButton')
+            button1.addEventListener('click', generateDecNumberAndAddToPage)
+        </script>
+    </body>
+</html>
