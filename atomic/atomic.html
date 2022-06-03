@@ -8,9 +8,8 @@
             @keyframes clash{
                 0% {transform: translate(-100%, calc(50vh - 50%));} 
                 38% {transform: translate(calc(96vw - 50%), calc(50vh - 50%));}                 
-                57% {transform: translate(calc(80vw - 50%), calc(50vh - 50%));}
-                57% {transform: rotate(180deg)}
-                100% {transform: translate(-100, calc(50vh - 50%));}
+                57% {transform: translate(calc(80vw - 50%), calc(50vh - 50%)) rotate(180deg);}
+                100% {transform: translate(-100, calc(50vh - 50%)) rotate(0deg);}
             }
             .hammerClash{
                 animation-duration: 2.8s;
@@ -108,7 +107,7 @@
     </head>
     <body id="body" class=''>
     <div id='basics'>
-      <h1>atomic simulator (Gamma version) v0.004</h1>
+      <h1>atomic simulator (Gamma version) v0.005</h1>
       <h2>fill in the boxes and we will simulate the atom(s) in all its glory</h2>
       <h3>warning causing an explosion to happen in the simulation more than 5 times without any reset may cause simulation to over heat please reset the page after each atomic explosion</h3>
        <label for="aNumber">enter <span style="color: purple">atomic number</span>:</label>
