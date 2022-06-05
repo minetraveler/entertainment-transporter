@@ -5,6 +5,61 @@
     <head>
         <title>atomic simulator</title>
         <style>
+            .rings{
+                position: absolute;
+            }
+            .rings:nth-child(1) {
+                height: 120px;
+                width: 120px;
+                left: 177px;
+                top: 185px;
+            }
+            .rings:nth-child(2) {
+                height: 165px;
+                width: 164px;
+                left: 155px;
+                top: 160px;
+            }
+            .rings:nth-child(3) {
+                height: 220px;
+                width: 220px;
+                left: 126px;
+                top: 131px;
+            }
+            .rings:nth-child(4) {
+                height: 287px;
+                width: 287px;
+                left: 92px;
+                top: 96px;
+            }
+            .rings:nth-child(5) {
+                height: 373px;
+                width: 373px;
+                left: 48px;
+                top: 50px;
+            }
+            .rings:nth-child(6) {
+                height: 468px;
+                width: 468px;
+                left: 0;
+                top: 0;
+            }
+            .nucleus{
+                height: 150px;
+                width: 150px;
+                position: absolute;
+                left: 163px;
+                top: 165px;
+            }
+            .babyAtom{
+                transform: translate(calc(50vw - 50%), calc(50vh - 50%)) scale(0.45);
+                position: absolute;
+                left: 0px;
+                top: 0;
+                width: 468px;
+                height: 468px;
+                transition: .5s;
+            }
             @keyframes clash{
                 0% {transform: translate(-100%, calc(50vh - 50%));} 
                 38% {transform: translate(calc(96vw - 50%), calc(50vh - 50%));}                 
@@ -23,7 +78,7 @@
                 background-repeat: no-repeat;
                 transition: 0.5s ease-in;
                 overflow: hidden;
-                background-image: url('./img/thorHammer.png'); 
+                background-image: url('../img/thorHammer.png'); 
                 border-radius: 25px; 
                 transition: width 0.5s linear;
                 width: 100px;
@@ -130,6 +185,7 @@
       <script>
             /*copywrite 2022 decoy decoy*/
            //declare global variable
+           const babyAtom = document.createElement('div')
             let godOLitghning = 0
             const violenceAtBlank = document.querySelector('.violenceAtBlank');
             violenceAtBlank.style.width = '0%'
@@ -143,6 +199,7 @@
             let cornicopia = 0
             let moscow = 0 
             let tenisee = 0
+            const atoms = []
             function calculate() {
                 // declaring variables
                 let aNumber = document.querySelector('#aNumber').value
@@ -355,7 +412,7 @@
                         godOLitghning = 0
                    }else{
                         godOLitghning ++
-                   }
+                   } getName('thorium', 'Th')
                }else if(aNumber == 92 && roundedMass == 238){
                    getName('uranium', 'U')
                }else if(aNumber == 93 && roundedMass == 237){
@@ -498,7 +555,7 @@
           }
           window.animateFromCenter = (elId, time, transX, transY) => {
             document.querySelector(`#${elId}`).style.transition = `${time}s`;
-            elId.transform = `translate(calc(${transX}vw - 50%), calc(${transY}vh - 50%))`
+            elId.style.transform = `translate(calc(${transX}vw - 50%), calc(${transY}vh - 50%))`
           }
           window.hammer = () => {
             document.querySelector('#thor').classList.add('hammerClash')
@@ -508,6 +565,39 @@
           window.hammerStop = () => {
             document.querySelector('#thor').classList.remove('hammerClash')
           }
+          window.generateAtom = (elv) => {
+           const babyAtom = document.createElement('div')
+            babyAtom.innerHTML = `
+            <img src = '../img/rings.png' class = 'rings'/>
+            <img src = '../img/rings.png' class = 'rings'/>
+            <img src = '../img/rings.png' class = 'rings'/>
+            <img src = '../img/rings.png' class = 'rings'/>
+            <img src = '../img/rings.png' class = 'rings'/>
+            <img src = '../img/rings.png' class = 'rings'/>
+            <img src = '../img/nucleus.png' class = 'nucleus'/>`
+            babyAtom.classList.add('babyAtom')
+            document.body.appendChild(babyAtom)
+            atoms.push({
+                energyLevels: elv,
+                element: babyAtom
+            })
+            const momentum = window.makeDestination()
+            window.setTimeout(function(){
+                babyAtom.style.transform = `${momentum}`  
+            }, 100)
+            console.log(momentum)          
+          }
+          window.makeDestination = () => {
+            const direction = Math.round(Math.random()) === 0 ? 'x' : 'y'
+            const magnitude = Math.round(Math.random()) === 0 ? 0 : 100
+            let transform
+            if (direction === 'x') {
+                transform = `translate(calc(min(${magnitude}vw, 100vw - 25%)), calc(min(${Math.random() * 100}vh, 100vh - 75%))) scale(.5)`
+            } else {
+                transform = `translate(calc(min(${Math.random() * 100}vw, 100vw - 75%)), calc(min(${magnitude}vh, 100vh - 25%))) scale(.5)`
+            }
+            return transform
+        }
             // check button
              const button = document.querySelector('#calculateStart');
                     button.addEventListener('click', calculate);
