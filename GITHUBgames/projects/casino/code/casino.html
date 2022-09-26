@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <style>
+            body{
+                background-image: url(../images/casinoFloor.jpg);
+                background-repeat: repeat;
+            }  
+            p{
+                font-size: 60px;
+                color: white;
+            }
+            input{
+                font-size: 50px;
+            }
+    </style>  
+    <body>
+        <p>how many times should it be the same color untill we record</p>
+        <input type ='number' id = 'askTimeCheck' name = 'timeAmount' >
+        <p>and what is the sample size</p>
+        <input type = 'number' id = 'sampleSize' name = 'sampleSize'>
+        <button onclick = 'roll()'></button>
+        <script>
+            function roll(){
+                const sampleSize = document.querySelector('#sampleSize').value
+                console.log(sampleSize)    
+            }
+        </script>
+    </body>
+</head>
