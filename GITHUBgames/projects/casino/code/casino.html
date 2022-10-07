@@ -2,9 +2,10 @@
 <head>
     <style>
             body{
+            background-color: black;
                 background-image: url(../images/casinoFloor.jpg);
                 background-repeat: repeat;
-            }  
+            }
             p{
                 font-size: 60px;
                 color: white;
@@ -12,18 +13,48 @@
             input{
                 font-size: 50px;
             }
-    </style>  
+            button {
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                padding: 40px 100px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 99px;
+                margin: 4px 2px;
+                font-family: 'Casino', sans-serif;
+            }
+    </style>
     <body>
         <p>how many times should it be the same color untill we record</p>
         <input type ='number' id = 'askTimeCheck' name = 'timeAmount' >
         <p>and what is the sample size</p>
         <input type = 'number' id = 'sampleSize' name = 'sampleSize'>
-        <button onclick = 'roll()'></button>
+        <p></p>
+        <button onclick = 'roll()'>start test</button>
+        <div>
+        <p id = 'test'>plays android noise</p><
+        /div>
         <script>
             function roll(){
+            //get info
+                 //get sample size
                 const sampleSize = document.querySelector('#sampleSize').value
-                console.log(sampleSize)    
+                 //get amount of times for the color to be the same
+                const testNum = document.querySelector('#askTimeCheck').value
+                //color per number
+              const colors = ['green', 'red', 'black', 'red', 'black','red', 'black', 'red', 'black', 'red', 'black', 'black', 'red','black', 'red', 'black', 'red', 'black', 'red', 'red', 'black' ,'red', 'black', 'red', 'black', 'red', 'black', 'red', 'black','black', 'red', 'black', 'red', 'black', 'red', 'black', 'red']
+                for (let i = 0; i < sampleSize; i++) {
+                let results = colors[Math.round(Math.random()*colors.length)]
+                if (checker){}
+                document.querySelector('#test').innerHTML=`${child1}`
+                } 
             }
         </script>
     </body>
 </head>
+ 
+ 
+ 
+

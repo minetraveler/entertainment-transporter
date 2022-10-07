@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <title> MnM's website thingy</title>
+
+
+    <style>
+
+      /* the mind behind the art*/
+
+      .pick{
+
+
+
+
+      }
+
+      #grad1 {
+
+          height: 500px;
+
+          background-image: conic-gradient(orange, blue, orange, blue,
+orange, blue, orange, blue, orange, blue, orange);
+
+
+   }
+
+          body{
+
+            height: 500px;background-image: linear-gradient(to top
+right, DarkTurquoise, Fuchsia, Maroon, navy, Springgreen);
+
+          }
+
+
+
+
+          button.illusion{
+
+          width: 80px;
+
+          height: 231px;
+
+          border-color: coral;
+
+          border-width: thick;
+
+          background-color: orange;
+
+          font-size: 20px;
+
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+  <!-- this shit thats on the page -->
+
+    <H1 id = 'header'> matthew & mattthew website thingy</H1>
+
+    <H2></H2>
+
+    <H3></H3>
+
+    <H4 id = 'chatBox'><i>hey whats up</i></H4>
+
+    <H4><i>wanna play some video games</i></H4>
+
+
+
+    <p><a href="https://www.coolmathgames.com/">GAMES</a></p>
+
+
+
+    <H5></H5>
+
+    <H6></H6>
+
+    <p></p>
+
+    <p> pick a parody </p>
+
+    <!--it isnt called chose ur own adventure for nothing-->
+
+     <label for="parody"></label>fnaf
+
+     <input type="radio" id ="fnaf" name ="parody">
+
+
+
+    <label for="parody"></label>not fnaf<input type="radio" id ="no"
+name ="parody">
+
+    <label for="parody"></label> definitely don't click this<input
+type="radio" id ="noo" name ="parody">
+
+    <p></p>
+
+    <H2>do not scroll down here</H2>
+
+    <H2>↓</H2>
+
+    <!-- this mitgh control the entire theme and plot of the game -->
+
+    <button id = 'illusion' class = 'illusion'> play</button>
+
+    <button id = 'chatButton' class = 'illusion'> proceed</button>
+
+    <p></p>
+
+   <!-- this is some crappy art -->
+
+
+<a href = 'https://minetraveler.github.io/komobini/index.HTML'>
+
+   <div id='grad1'></div>
+
+    <div id='grad2'></div>
+
+    <script>
+
+    //minipulation time
+
+    let chatTurn = 0
+
+    const chatInfo = ['the sky', 'Why would you do this.', 'cause theystepped over the diddly darn line', 'Who stepped over the <i>diddlydarn line</i>.', 'Are you going to respond.', 'sorry i had to makesomthing' , 'Okay, can you answer my question.', 'what question', 'Theone I asked 6 turns ago.', 'Can you just tell me who stepped over thediddly darn line.', 'WHO STEPPED OVER THE DIdDiLy DaRnLINEEEEEEEEEEEEEEEEEEEEE!!?!?!?!?!?', 'how about we play a game', 'okfine.', 'what kind of game, do you mean like a board game orsomething?', 'You know what if you wont respond', 'I will let the userdecide...', '<input type="radio" id="choice_1" name="choice_1"value="choice_1"><label for="choice_1">choice_1</label>      <p></p>  <input type="radio" id="choice_2" name="choice_2"value="choice_2"><label for="choice_2">choice_2</label>',            '<input type="radio" id="choice_3" name="choice_3"value="choice_3"><label for="choice_3">forbidden_choice</label>']
+
+
+
+
+    function chatTime() {
+
+      document.querySelector('#chatBox').innerHTML=`${chatInfo[chatTurn]
+|| '<i>[content redacted}</i>'}`;
+
+
+      chatTurn ++
+
+    }
+
+    function playChoice() {
+
+    //dec vars
+      const notFNAF = document.querySelector('#no')
+      const fnaf = document.querySelector('#fnaf')
+      const dontClickThis = document.querySelector('#noo')
+ if (fnaf.checked){
+      notFNAF.click()
+       window.setTimeout(function start(){
+        alert("are you sure you dont whant to play fnaf")
+        } , 100)
+        window.setTimeout(function start(){
+          window.location.replace("./phaze r 2.html")
+          } , 100)
+      }else if (dontClickThis.checked){
+      fnaf.click()
+      window.setTimeout(function start(){
+        alert("are you sure you whant to play fnaf")
+        } , 100)
+        window.setTimeout(function start(){
+          window.location.replace("./phaze r 2.html")
+          } , 100)
+      }else if (notFNAF.checked){
+      dontClickThis.click()
+        window.setTimeout(function start(){
+        alert("are you sure you whant to click that")
+        } , 100)
+        window.setTimeout(function start(){
+          window.location.replace("./phaze r 2.html")
+          } , 100)
+      }
+    }
+
+   function chatButton() {
+
+   if (choice_1.checked)
+       window.location.replace("https://sites.google.com/site/unblockedgame67/five-nights-at-freddys-4")
+
+   if (choice_2.checked)
+       little_game();
+ }
+
+ function little_game(){
+ txt = "a";
+ while(1){
+    txt = txt += "a";
+ }
+
+}
+
+    const chatBox = document.querySelector('#chatButton');
+
+    chatBox.addEventListener('click', chatButton);
+
+    chatBox.addEventListener('click', chatTime);
+
+    const illusion = document.querySelector('#illusion');
+
+    illusion.addEventListener('click', playChoice);
+
+    </script>
+
+  </body>
+
+</html>
