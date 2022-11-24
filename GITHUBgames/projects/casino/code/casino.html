@@ -35,67 +35,7 @@
         <button onclick = 'roll()'>start test</button>
         <div>
         <p id = 'test'>plays android noise</p></div>
-        <script>
-            function roll(){
-            //get info
-                 //get sample size
-                const sampleSize = document.querySelector('#sampleSize').value
-                 //get amount of times for the color to be the same
-                const testNum = document.querySelector('#askTimeCheck').value
-                //color per number
-              const colors = ['green', 'red', 'black', 'red', 'black','red', 'black', 'red', 'black', 'red', 'black', 'black', 'red','black', 'red', 'black', 'red', 'black', 'red', 'red', 'black' ,'red', 'black', 'red', 'black', 'red', 'black', 'red', 'black','black', 'red', 'black', 'red', 'black', 'red', 'black', 'red']
-                //prepare for the loop
-                let crashTest = 0
-                let redStatHolder = 0
-                let blackStatHolder = 0
-                let greenStatHolder = 0
-                let counterColor = ''
-                let counterNumber = 0
-                let sampleNum = 0
-                while(sampleNum !== sampleSize) {
-                    let results = colors[Math.round(Math.random()*colors.length)]
-                    if(results == counterColor){ 
-                        counterNumber ++
-                        if(counterNumber == testNum){
-                            console.log('first success', results)
-                            switch(results){
-                                case 'red':
-                                redStatHolder ++
-                                break;
-                                case 'black':
-                                blackStatHolder ++
-                                break;
-                                case 'green':
-                                greenStatHolder ++
-                            }
-                            sampleNum ++
-                        }
-                    }else{
-                        counterNumber = 1
-                        switch(results){
-                                case 'red':
-                                counterColor = 'red'
-                                break;
-                                case 'black':
-                                counterColor = 'black'
-                                break;
-                                case 'green':
-                                counterColor = 'green'
-                            }
-                    }
-                    crashTest ++
-                    if(crashTest == 1000){
-                        samspleNum = sampleSize
-                        console.log('crash')
-                    }
-                }
-                const statHolder = redStatHolder + blackStatHolder + greenStatHolder
-                const redPercent = redStatHolder / statHolder
-                const blackPercent = blackStatHolder / statHolder
-                const greenPercent = greenStatHolder / statHolder
-                console.log('red', redPercent, 'black', blackPercent, 'green', greenPercent)
-            }
-        </script>
+        <script src = 'roll.js'></script>
     </body>
 </head>
  
