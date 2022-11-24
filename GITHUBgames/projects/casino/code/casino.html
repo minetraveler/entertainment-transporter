@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <head>
+    <title>casino</title>
+    <link rel="icon" type="image/x-icon" href="../../../projects/start/img/casino.png">
     <style>
             body{
             background-color: black;
@@ -11,9 +13,12 @@
                 color: white;
             }
             input{
+                padding: 10px;
+                border-radius: 25px;
                 font-size: 50px;
             }
             button {
+                border-radius: 25px;
                 background-color: #4CAF50;
                 border: none;
                 color: white;
@@ -34,7 +39,19 @@
         <p></p>
         <button onclick = 'roll()'>start test</button>
         <div>
-        <p id = 'test'>plays android noise</p></div>
+            <table>
+                <thead style="font-size:x-large;">
+                  <td style="background-color: rgb(255, 208, 0); border: thick solid black"> how many times did it hit the same color as the repeated color</td>
+                  <td style="background-color: rgb(255, 179, 0); border: thick solid black"> how many times did it hit the different color as the repeated color</td>
+                  <td style="background-color: rgb(255, 179, 0); border: thick solid black"> how many times do you have to wait for that to happen</td>
+                </thead>
+                <tr style="font-size:x-large;">
+                  <td style="background-color: rgb(255, 54, 54); border: thick solid black" id = 'sameColor'>start the test to get the info</td>
+                  <td style="background-color: rgb(255, 54, 54); border: thick solid black" id = 'diffColor'>start the test to get the info</td>
+                  <td style="background-color: rgb(255, 54, 54); border: thick solid black" id = 'timesRolled'>start the test to get the info</td>
+                </tr>
+              </table>
+        </div>
         <script src = 'roll.js'></script>
     </body>
 </head>

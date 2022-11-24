@@ -58,4 +58,7 @@ function roll(){
         console.log('amount of times that it was same', sameStatHolder)
         console.log('the amount of times it was different', difStatHolder)
         console.log('the amount of times you would have to watch for teh oppertunity to arise', sampleNum)
+        document.querySelector('#sameColor').innerHTML = `${sameStatHolder}`
+        document.querySelector('#diffColor').innerHTML = `${difStatHolder}`
+        document.querySelector('#timesRolled').innerHTML = `${sampleNum}`
     }
